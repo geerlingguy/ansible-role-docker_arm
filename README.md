@@ -33,7 +33,7 @@ A list of system users to be added to the `docker` group (so they can use Docker
 Many users of this role wish to also use Ansible to then _build_ Docker images and manage Docker containers on the server where Docker is installed. In this case, you can easily add in the `docker` Python library using the `geerlingguy.pip` role:
 
 ```yaml
-- hosts: all
+- hosts: rpi
 
   vars:
     pip_install_packages:
@@ -41,7 +41,7 @@ Many users of this role wish to also use Ansible to then _build_ Docker images a
 
   roles:
     - geerlingguy.pip
-    - geerlingguy.docker
+    - geerlingguy.docker_arm
 ```
 
 ## Dependencies
@@ -51,9 +51,10 @@ None.
 ## Example Playbook
 
 ```yaml
-- hosts: all
+- hosts: rpi
   roles:
-    - geerlingguy.docker
+    - geerlingguy.pip
+    - geerlingguy.docker_arm
 ```
 
 ## License
