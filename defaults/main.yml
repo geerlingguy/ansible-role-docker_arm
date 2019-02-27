@@ -1,0 +1,9 @@
+---
+# Check available versions on a Pi: `apt-cache madison docker-ce`
+docker_version: 5:18.09.0~3-0~raspbian-stretch
+
+# Whether to install Docker Compose via Pip.
+docker_install_compose: true
+
+# A list of users who will be added to the docker group.
+docker_users: []

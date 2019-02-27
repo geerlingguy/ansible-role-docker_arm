@@ -1,0 +1,48 @@
+---
+- name: Check if Docker is already present.
+  command: which docker
+  failed_when: false
+  changed_when: false
+  register: docker_command_result
+
+- name: Download Docker install convenience script.
+  get_url:
+    url: https://get.docker.com/
+    dest: /tmp/get-docker.sh
+    mode: 0775
+  when: docker_command_result.rc == 1
+
+- name: Run Docker install convenience script.
+  command: /tmp/get-docker.sh
+  environment:
+    CHANNEL: stable
+  when: docker_command_result.rc == 1
+
+- name: Make sure Docker CE is the version specified.
+  apt:
+    name: "docker-ce={{ docker_version }}"
+    state: present
+    force: true
+
+# TODO: Remove this shim once 18.09.1 or later is released.
+- import_tasks: docker-1809-shim.yml
+  when: ansible_service_mgr == 'systemd'
+
+- name: Ensure Docker is started.
+  service:
+    name: docker
+    state: started
+    enabled: true
+
+- name: Install Docker Compose using Pip.
+  pip:
+    name: docker-compose
+    state: present
+  when: docker_install_compose
+
+- name: Ensure docker users are added to the docker group.
+  user:
+    name: "{{ item }}"
+    group: docker
+    append: true
+  with_items: "{{ docker_users }}"

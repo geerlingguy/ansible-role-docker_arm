@@ -1,0 +1,21 @@
+---
+dependencies: []
+galaxy_info:
+  author: Jeff Geerling
+  role_name: docker_arm
+  description: Docker setup for Rasbperry Pi and ARM-based devices.
+  company: Midwestern Mac, LLC
+  license: license (MIT)
+  min_ansible_version: 2.4
+  platforms:
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
+  galaxy_tags:
+    - system
+    - docker
+    - containers
+    - arm
+    - raspberry
+    - pi
