@@ -6,6 +6,10 @@ An Ansible Role that installs [Docker](https://www.docker.com) on Linux, special
 
 If you need a more flexible and generic role for Docker, check out [`geerlingguy.docker`](https://galaxy.ansible.com/geerlingguy/docker).
 
+## Role Usage in Real-world projects
+
+Besides the documentation here, please see the [Raspberry Pi Dramble](http://www.pidramble.com) for an example of this role in action, being used with multiple Raspberry Pis to build a Kubernetes cluster, or [Drupal Pi](https://github.com/geerlingguy/drupal-pi) for an example of use with a single Raspberry Pi.
+
 ## Requirements
 
 If installing Docker Compose, requires Python Pip already be installed (you can use `geerlingguy.pip` to install it).
