@@ -3,7 +3,7 @@
   command: which docker
   failed_when: false
   changed_when: false
-  register: docker_command_result.rc == 1
+  register: docker_command_result
 
 - name: Download Docker install convenience script.
   get_url:
@@ -16,7 +16,7 @@
   command: /tmp/get-docker.sh
   environment:
     CHANNEL: stable
-  when: docker_command_result is failed
+  when: docker_command_result.rc == 1
 
 - name: Make sure Docker CE is the version specified.
   apt:
