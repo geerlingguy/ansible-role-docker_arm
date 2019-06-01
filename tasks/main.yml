@@ -38,7 +38,7 @@
   pip:
     name: docker-compose
     state: present
-  when: docker_install_compose
+  when: docker_install_compose | bool
 
 - name: Ensure docker users are added to the docker group.
   user:
