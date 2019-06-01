@@ -10,13 +10,13 @@
     url: https://get.docker.com/
     dest: /tmp/get-docker.sh
     mode: 0775
-  when: docker_command_result.rc == 1
+  when: docker_command_result is failed
 
 - name: Run Docker install convenience script.
   command: /tmp/get-docker.sh
   environment:
     CHANNEL: stable
-  when: docker_command_result.rc == 1
+  when: docker_command_result is failed
 
 - name: Make sure Docker CE is the version specified.
   apt:
