@@ -18,7 +18,9 @@
     path: /tmp/get-docker.sh
     regexp: '9\)'
     replace: '9|10)'
-  when: ansible_distribution_version == "10"
+  when:
+    - ansible_distribution_version == "10"
+    - docker_command_result.rc == 1
 
 - name: Run Docker install convenience script.
   command: /tmp/get-docker.sh
