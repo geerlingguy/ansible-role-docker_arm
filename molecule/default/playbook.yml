@@ -4,12 +4,15 @@
   become: true
 
   vars:
-    docker_version: 5:18.09.2~3-0~debian-stretch
+    docker_version: 5:18.09.7~3-0~debian-stretch
 
   pre_tasks:
     - name: Update apt cache.
       apt: update_cache=yes cache_valid_time=600
       when: ansible_os_family == 'Debian'
+
+    - debug:
+        var: ansible_os_family
 
   roles:
     - role: geerlingguy.pip

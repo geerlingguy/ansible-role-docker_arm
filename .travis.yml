@@ -7,6 +7,7 @@ env:
     - ROLE_NAME: docker_arm
   matrix:
     - MOLECULE_DISTRO: debian9
+    - MOLECULE_DISTRO: debian10
 
 install:
   # Install test dependencies.
