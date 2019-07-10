@@ -18,7 +18,7 @@ If installing Docker Compose, requires Python Pip already be installed (you can 
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    docker_version: 5:18.09.7~3-0~raspbian-stretch
+    docker_version: 5:18.09.0~3-0~raspbian-stretch
 
 The version of Docker to install. Check for available versions with `apt-cache madison docker-ce`.
 
