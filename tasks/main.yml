@@ -12,13 +12,14 @@
     mode: 0775
   when: docker_command_result.rc == 1
 
-# See: https://github.com/geerlingguy/ansible-role-docker_arm/issues/2
-- name: Modify Docker install convenience script for Debian Buster.
+# See: https://github.com/geerlingguy/ansible-role-docker_arm/issues/3
+- name: Modify Docker install convenience script for Debian Buster on ARM.
   replace:
     path: /tmp/get-docker.sh
-    regexp: '9\)'
-    replace: '9|10)'
+    regexp: 'dist_version="buster"'
+    replace: 'dist_version="stretch"'
   when:
+    - ('arm' in ansible_architecture)
     - ansible_distribution_version == "10"
     - docker_command_result.rc == 1
 
