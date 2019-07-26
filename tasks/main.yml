@@ -28,7 +28,7 @@
 - import_tasks: docker-1809-shim.yml
   when:
     - ansible_service_mgr == 'systemd'
-    - '18.09.0' in docker_version
+    - "'18.09.0' in docker_version"
 
 - name: Ensure Docker is started.
   service:
