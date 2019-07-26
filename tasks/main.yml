@@ -12,17 +12,6 @@
     mode: 0775
   when: docker_command_result.rc == 1
 
-# See: https://github.com/geerlingguy/ansible-role-docker_arm/issues/3
-- name: Modify Docker install convenience script for Debian Buster on ARM.
-  replace:
-    path: /tmp/get-docker.sh
-    regexp: 'dist_version="buster"'
-    replace: 'dist_version="stretch"'
-  when:
-    - ('arm' in ansible_architecture)
-    - ansible_distribution_version == "10"
-    - docker_command_result.rc == 1
-
 - name: Run Docker install convenience script.
   command: /tmp/get-docker.sh
   environment:
@@ -35,9 +24,11 @@
     state: present
     force: true
 
-# TODO: Remove this shim once 18.09.1 or later is released.
+# Shim for Docker 18.09.0 on Debian Stretch.
 - import_tasks: docker-1809-shim.yml
-  when: ansible_service_mgr == 'systemd'
+  when:
+    - ansible_service_mgr == 'systemd'
+    - '18.09.0' in docker_version
 
 - name: Ensure Docker is started.
   service:
