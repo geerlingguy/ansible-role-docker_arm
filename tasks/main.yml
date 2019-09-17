@@ -36,20 +36,20 @@
     state: started
     enabled: true
 
-- name: Uninstall Pip's backport as it has conflict with compose
+- name: Uninstall Pip's backport as it has conflict with compose.
   pip:
     name: backports.ssl-match-hostname
     state: absent
   when: docker_install_compose | bool
 
-- name: Install backports as a Raspbian package
+- name: Install backports as a Raspbian package.
   apt:
     name: python-backports.ssl-match-hostname
     state: present
     force: true
   when: docker_install_compose | bool
 
-- name: Install Compose's missing dependency
+- name: Install Compose's missing dependency.
   apt:
     name: libffi-dev
     state: present
