@@ -40,6 +40,7 @@
   pip:
     name: backports.ssl-match-hostname
     state: absent
+  failed_when: false
   when: docker_install_compose | bool
 
 - name: Install backports as a Raspbian package.
