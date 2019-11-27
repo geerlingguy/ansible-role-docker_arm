@@ -32,6 +32,10 @@ Whether to install Docker Compose via Pip.
 
 A list of system users to be added to the `docker` group (so they can use Docker on the server).
 
+    docker_pip_executable: pip
+
+Set this to `pip` for Python 2 and `pip3` for Python 3.
+
 ## Use with Ansible (and `docker` Python library)
 
 Many users of this role wish to also use Ansible to then _build_ Docker images and manage Docker containers on the server where Docker is installed. In this case, you can easily add in the `docker` Python library using the `geerlingguy.pip` role:

@@ -7,3 +7,6 @@ docker_install_compose: true
 
 # A list of users who will be added to the docker group.
 docker_users: []
+
+# The executable to use for Pip.
+docker_pip_executable: pip
