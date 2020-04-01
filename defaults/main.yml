@@ -1,6 +1,6 @@
 ---
 # Check available versions on a Pi: `apt-cache madison docker-ce`
-docker_version: 5:19.03.1~3-0~raspbian-buster
+docker_version: 5:19.03.8~3-0~raspbian-buster
 
 # Whether to install Docker Compose via Pip.
 docker_install_compose: true
@@ -9,4 +9,4 @@ docker_install_compose: true
 docker_users: []
 
 # The executable to use for Pip.
-docker_pip_executable: pip
+docker_pip_executable: pip3

@@ -18,7 +18,7 @@ If installing Docker Compose, requires Python Pip already be installed (you can 
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    docker_version: 5:19.03.1~3-0~raspbian-buster
+    docker_version: 5:19.03.8~3-0~raspbian-buster
 
 The version of Docker to install. Check for available versions with `apt-cache madison docker-ce`.
 
@@ -32,9 +32,9 @@ Whether to install Docker Compose via Pip.
 
 A list of system users to be added to the `docker` group (so they can use Docker on the server).
 
-    docker_pip_executable: pip
+    docker_pip_executable: pip3
 
-Set this to `pip` for Python 2 and `pip3` for Python 3.
+Set this to `pip` for Python 2 or `pip3` for Python 3.
 
 ## Use with Ansible (and `docker` Python library)
 
@@ -44,6 +44,7 @@ Many users of this role wish to also use Ansible to then _build_ Docker images a
 - hosts: rpi
 
   vars:
+    pip_package: python3-pip
     pip_install_packages:
       - name: docker
 
@@ -60,6 +61,10 @@ None.
 
 ```yaml
 - hosts: rpi
+
+  vars:
+    pip_package: python3-pip
+
   roles:
     - geerlingguy.pip
     - geerlingguy.docker_arm
