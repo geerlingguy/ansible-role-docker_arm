@@ -1,7 +1,7 @@
 ---
 dependencies: []
 galaxy_info:
-  author: Jeff Geerling
+  author: geerlingguy
   role_name: docker_arm
   description: Docker setup for Rasbperry Pi and ARM-based devices.
   company: Midwestern Mac, LLC
