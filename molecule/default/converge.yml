@@ -14,11 +14,6 @@
         docker_pip_executable: pip
       when: ansible_distribution_version == "9"
 
-    - name: Set variables for Debian 10 Buster non-ARM tests.
-      set_fact:
-        docker_version: 5:19.03.8~3-0~debian-buster
-      when: ansible_distribution_version == "10"
-
     - debug:
         var: ansible_os_family
 

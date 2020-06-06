@@ -18,7 +18,9 @@ If installing Docker Compose, requires Python Pip already be installed (you can 
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    docker_version: 5:19.03.8~3-0~raspbian-buster
+    docker_version_armv7: 5:19.03.8~3-0~raspbian-buster
+    docker_version_arm64: 5:19.03.8~3-0~raspbian-buster
+    docker_version: "{{ docker_version_armv7 if 'armv7' in ansible_architecture else docker_version_arm64 }}"
 
 The version of Docker to install. Check for available versions with `apt-cache madison docker-ce`.
 
