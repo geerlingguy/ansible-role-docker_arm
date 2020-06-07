@@ -23,6 +23,7 @@
     name: "docker-ce={{ docker_version }}"
     state: present
     force: true
+    install_recommends: no
 
 # Shim for Docker 18.09.0 on Debian Stretch.
 - import_tasks: docker-1809-shim.yml
