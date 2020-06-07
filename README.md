@@ -24,6 +24,10 @@ Available variables are listed below, along with default values (see `defaults/m
 
 The version of Docker to install. Check for available versions with `apt-cache madison docker-ce`.
 
+    docker_install_recommends: false
+
+Whether to install recommended packages alongside docker-ce.
+
     docker_install_compose: true
 
 Whether to install Docker Compose via Pip.

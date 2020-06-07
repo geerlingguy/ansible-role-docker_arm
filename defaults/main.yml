@@ -5,6 +5,9 @@ docker_version_arm64: 5:19.03.9~3-0~debian-buster
 # Check available versions on a Pi: `apt-cache madison docker-ce`
 docker_version: "{{ docker_version_armv7 if 'armv7' in ansible_architecture else docker_version_arm64 }}"
 
+# Whether to install recommended packages alongside docker-ce.
+docker_install_recommends: false
+
 # Whether to install Docker Compose via Pip.
 docker_install_compose: true
 
