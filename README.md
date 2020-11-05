@@ -1,6 +1,6 @@
 # Ansible Role: Docker for ARM
 
-[![Build Status](https://travis-ci.com/geerlingguy/ansible-role-docker_arm.svg?branch=master)](https://travis-ci.com/geerlingguy/ansible-role-docker_arm)
+[![CI](https://github.com/geerlingguy/ansible-role-docker_arm/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-docker_arm/actions?query=workflow%3ACI)
 
 An Ansible Role that installs [Docker](https://www.docker.com) on Linux, specially tailored for ARM-based computers like the Raspberry Pi.
 
