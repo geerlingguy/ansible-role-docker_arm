@@ -4,7 +4,7 @@
 
 An Ansible Role that installs [Docker](https://www.docker.com) on Linux, specially tailored for ARM-based computers like the Raspberry Pi.
 
-If you need a more flexible and generic role for Docker, check out [`geerlingguy.docker`](https://galaxy.ansible.com/geerlingguy/docker).
+If you need a more flexible and generic role for Docker on non-ARM platforms like x86, please check out [`geerlingguy.docker`](https://galaxy.ansible.com/geerlingguy/docker).
 
 ## Role Usage in Real-world projects
 
