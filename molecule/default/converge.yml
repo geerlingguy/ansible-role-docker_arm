@@ -8,14 +8,6 @@
       apt: update_cache=yes cache_valid_time=600
       when: ansible_os_family == 'Debian'
 
-    - name: Set variables for Debian 9 Stretch non-ARM tests.
-      set_fact:
-        docker_version: 5:19.03.8~3-0~debian-stretch
-      when: ansible_distribution_version == "9"
-
-    - debug:
-        var: ansible_os_family
-
   roles:
     - role: geerlingguy.pip
     - role: geerlingguy.docker_arm
