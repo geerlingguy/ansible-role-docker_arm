@@ -22,21 +22,31 @@
 - name: Make sure Docker CE is the version specified.
   apt:
     name: "docker-ce={{ docker_version }}"
-    state: present
+    state: "{{ docker_package_state }}"
     force: true
     install_recommends: "{{ docker_install_recommends }}"
 
-# Shim for Docker 18.09.0 on Debian Stretch.
-- import_tasks: docker-1809-shim.yml
-  when:
-    - ansible_service_mgr == 'systemd'
-    - "'18.09.0' in docker_version"
+- name: process docker
+  when: docker_package_state != 'absent'
+  block:
+    # Shim for Docker 18.09.0 on Debian Stretch.
+    - import_tasks: docker-1809-shim.yml
+      when:
+        - ansible_service_mgr == 'systemd'
+        - "'18.09.0' in docker_version"
 
-- name: Ensure Docker is started.
-  service:
-    name: docker
-    state: started
-    enabled: true
+    - name: Ensure Docker is started.
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Ensure docker users are added to the docker group.
+      user:
+        name: "{{ item }}"
+        groups: docker
+        append: true
+      with_items: "{{ docker_users }}"
 
 - name: Install Docker Compose using Pip.
   pip:
@@ -44,10 +54,3 @@
     state: present
     executable: "{{ docker_pip_executable }}"
   when: docker_install_compose | bool
-
-- name: Ensure docker users are added to the docker group.
-  user:
-    name: "{{ item }}"
-    groups: docker
-    append: true
-  with_items: "{{ docker_users }}"

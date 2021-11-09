@@ -21,8 +21,14 @@ Available variables are listed below, along with default values (see `defaults/m
     docker_version_armv7: 5:19.03.12~3-0~raspbian-buster
     docker_version_arm64: 5:19.03.8~3-0~raspbian-buster
     docker_version: "{{ docker_version_armv7 if 'armv7' in ansible_architecture else docker_version_arm64 }}"
+    docker_package_state: present
 
 The version of Docker to install. Check for available versions with `apt-cache madison docker-ce`.
+
+You can control whether the package is installed, uninstalled, or at the latest version by setting docker_package_state
+to present, absent, or latest, respectively. Note that the Docker daemon will be automatically restarted if the Docker
+package is updated. This is a side effect of flushing all handlers (running any of the handlers that have been notified
+by this and any other role up to this point in the play).
 
     docker_install_recommends: false
 

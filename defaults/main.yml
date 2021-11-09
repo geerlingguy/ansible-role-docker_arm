@@ -17,3 +17,5 @@ docker_users: []
 
 # The executable to use for Pip.
 docker_pip_executable: pip3
+
+docker_package_state: present
