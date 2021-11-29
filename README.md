@@ -24,6 +24,10 @@ Available variables are listed below, along with default values (see `defaults/m
 
 The version of Docker to install. Check for available versions with `apt-cache madison docker-ce`.
 
+    docker_version: latest
+
+To install the latest version of Docker available for your OS.
+
     docker_install_recommends: false
 
 Whether to install recommended packages alongside docker-ce.

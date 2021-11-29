@@ -25,6 +25,7 @@
     state: present
     force: true
     install_recommends: "{{ docker_install_recommends }}"
+  when: docker_version != 'latest'
 
 # Shim for Docker 18.09.0 on Debian Stretch.
 - import_tasks: docker-1809-shim.yml
