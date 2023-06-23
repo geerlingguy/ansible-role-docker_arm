@@ -6,7 +6,7 @@ galaxy_info:
   description: Docker setup for Rasbperry Pi and ARM-based devices.
   company: Midwestern Mac, LLC
   license: license (MIT)
-  min_ansible_version: 2.4
+  min_ansible_version: 2.10
   platforms:
     - name: Debian
       versions:
