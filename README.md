@@ -1,10 +1,10 @@
 # Ansible Role: Docker for ARM
 
+**Deprecated**: Please use [`geerlingguy.docker`](https://galaxy.ansible.com/geerlingguy/docker) instead. On modern distributions, Docker should install just fine on Arm or X86 (or even RISC-V!) using that role.
+
 [![CI](https://github.com/geerlingguy/ansible-role-docker_arm/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-docker_arm/actions?query=workflow%3ACI)
 
 An Ansible Role that installs [Docker](https://www.docker.com) on Linux, specially tailored for ARM-based computers like the Raspberry Pi.
-
-If you need a more flexible and generic role for Docker on non-ARM platforms like x86, please check out [`geerlingguy.docker`](https://galaxy.ansible.com/geerlingguy/docker).
 
 ## Role Usage in Real-world projects
 
